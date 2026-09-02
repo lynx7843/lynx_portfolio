@@ -17,10 +17,16 @@ export interface ContactInfo {
   linkedin: string;
 }
 
+export interface TechCategory {
+  label: string;
+  items: string[];
+}
+
 export interface SiteData {
   navLinks: NavLink[];
   personalInfo: PersonalInfo;
   contactInfo: ContactInfo;
+  techStack: TechCategory[];
 }
 
 export const siteData: SiteData = {
@@ -41,4 +47,30 @@ export const siteData: SiteData = {
     github: "https://github.com/lynx7843",
     linkedin: "https://www.linkedin.com/in/dilan-edirisingha-amantha",
   },
+  techStack: [
+    {
+      label: "Languages",
+      items: ["C", "C#", "C++", "Dart", "Go", "Java", "JavaScript", "Kotlin", "PHP", "Python", "Swift"],
+    },
+    {
+      label: "Frontend",
+      items: ["HTML5", "React", "Bootstrap", "Tailwind CSS", "Three.js", "Vite"],
+    },
+    {
+      label: "Backend",
+      items: [".NET", "Node.js", "Apache", "Tomcat", "Maven", "JWT", "NPM"],
+    },
+    {
+      label: "Databases",
+      items: ["DynamoDB", "SQL Server", "MongoDB", "MySQL", "PostgreSQL"],
+    },
+    {
+      label: "Cloud & Infrastructure",
+      items: ["AWS", "Cloudflare", "Firebase", "Docker", "Kubernetes"],
+    },
+    {
+      label: "Tools & DevOps",
+      items: ["Git", "GitHub", "Postman", "Arduino"],
+    },
+  ],
 };
