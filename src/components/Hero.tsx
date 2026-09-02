@@ -49,9 +49,9 @@ export default function Hero() {
 
         <div className="w-48 shrink-0 md:w-56 lg:w-2/5">
           <img
-            src="/img/profile.jpeg"
+            src="/img/profile.png"
             alt={personalInfo.name}
-            className="mx-auto aspect-square w-full max-w-xs rounded-2xl object-cover object-top shadow-lg lg:max-w-sm"
+            className="mx-auto aspect-square w-full max-w-xs -translate-y-[5px] rounded-2xl object-cover object-top shadow-lg lg:max-w-sm"
           />
         </div>
       </div>
