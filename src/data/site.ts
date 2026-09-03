@@ -30,12 +30,20 @@ export interface Project {
   githubUrl: string;
 }
 
+export interface Education {
+  institution: string;
+  qualification: string;
+  period: string;
+  details?: string[];
+}
+
 export interface SiteData {
   navLinks: NavLink[];
   personalInfo: PersonalInfo;
   contactInfo: ContactInfo;
   techStack: TechCategory[];
   projects: Project[];
+  education: Education[];
 }
 
 export const siteData: SiteData = {
@@ -124,6 +132,28 @@ export const siteData: SiteData = {
       ],
       tech: ["React", "Tailwind CSS", "Node.js", "Fastify", "Zod", "PostgreSQL"],
       githubUrl: "https://github.com/lynx7843/HireSync",
+    },
+  ],
+  education: [
+    {
+      institution: "National School of Business Management (NSBM) / Plymouth University Sri Lanka (PUSL)",
+      qualification: "BSc (Hons) in Software Engineering",
+      period: "2024 - 2027",
+    },
+    {
+      institution: "Association of Accounting Technicians (AAT) Sri Lanka",
+      qualification: "Level I and Level II completed",
+      period: "2023 - 2024",
+    },
+    {
+      institution: "Wycherley International School",
+      qualification: "GCE Advanced Level (Commerce)",
+      period: "2022 - 2023",
+    },
+    {
+      institution: "Wycherley International School",
+      qualification: "GCE Ordinary Level",
+      period: "2020 - 2021",
     },
   ],
 };
