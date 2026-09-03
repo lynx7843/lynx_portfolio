@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { Menu, Moon, X } from "lucide-react";
+import { Menu, Moon, Sun, X } from "lucide-react";
 import { siteData } from "@/data/site";
+import { useTheme } from "@/lib/useTheme";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <header className="fixed top-0 z-50 w-full border-b border-border/60 bg-background/95 backdrop-blur">
@@ -26,9 +28,14 @@ export default function Navbar() {
           <button
             type="button"
             aria-label="Toggle theme"
+            onClick={toggleTheme}
             className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-input text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
           >
-            <Moon className="h-4 w-4" />
+            {theme === "dark" ? (
+              <Sun className="h-4 w-4" />
+            ) : (
+              <Moon className="h-4 w-4" />
+            )}
           </button>
 
           <button

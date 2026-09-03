@@ -9,6 +9,15 @@
       content="Dilan Amantha — Software Engineer & Full-Stack Developer portfolio."
     />
     <title>Dilan Amantha | Software Engineer</title>
+    <script>
+      (function () {
+        var stored = localStorage.getItem("theme");
+        var isDark =
+          stored === "dark" ||
+          (!stored && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        document.documentElement.classList.toggle("dark", isDark);
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
