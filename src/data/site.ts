@@ -37,6 +37,13 @@ export interface Education {
   details?: string[];
 }
 
+export interface OtherActivity {
+  organization: string;
+  activity: string;
+  period: string;
+  details?: string[];
+}
+
 export interface SiteData {
   navLinks: NavLink[];
   personalInfo: PersonalInfo;
@@ -44,6 +51,7 @@ export interface SiteData {
   techStack: TechCategory[];
   projects: Project[];
   education: Education[];
+  other: OtherActivity[];
 }
 
 export const siteData: SiteData = {
@@ -51,6 +59,7 @@ export const siteData: SiteData = {
     { label: "Tech Stack", path: "#tech-stack" },
     { label: "Projects", path: "#projects" },
     { label: "Education", path: "#education" },
+    { label: "Other", path: "#other" },
     { label: "Blog", path: "#blog", comingSoon: true },
   ],
   personalInfo: {
@@ -154,6 +163,34 @@ export const siteData: SiteData = {
       institution: "Wycherley International School",
       qualification: "GCE Ordinary Level",
       period: "2020 - 2021",
+    },
+  ],
+  other: [
+    {
+      organization: "Wycherley International School",
+      activity: "Chess Club",
+      period: "6+ years",
+    },
+    {
+      organization: "Wycherley International School",
+      activity: "Scrabble Club",
+      period: "4+ years",
+    },
+    {
+      organization: "Wycherley International School",
+      activity: "Robotics Club",
+      period: "2 years",
+    },
+    {
+      organization: "Wycherley International School",
+      activity: "Art Society",
+      period: "During GCE Ordinary Level",
+    },
+    {
+      organization: "Self-Taught",
+      activity: "Independent Study",
+      period: "Ongoing",
+      details: ["Electronics", "Networking", "3D Modeling"],
     },
   ],
 };
