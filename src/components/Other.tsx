@@ -2,7 +2,7 @@ import { siteData } from "@/data/site";
 
 export default function Other() {
   return (
-    <section id="other" className="container max-w-5xl py-16 md:py-24">
+    <section id="other" className="container max-w-5xl scroll-mt-12 pt-8 pb-16 md:pt-12 md:pb-24">
       <h2 className="mb-10 text-3xl font-bold tracking-tight md:text-4xl">
         Other
       </h2>

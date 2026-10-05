@@ -2,7 +2,7 @@ import { siteData } from "@/data/site";
 
 export default function TechStack() {
   return (
-    <section id="tech-stack" className="container max-w-5xl py-16 md:py-24">
+    <section id="tech-stack" className="container max-w-5xl pt-16 pb-8 md:pt-24 md:pb-12">
       <h2 className="mb-10 text-3xl font-bold tracking-tight md:text-4xl">
         Tech Stack
       </h2>

@@ -2,7 +2,7 @@ import { siteData } from "@/data/site";
 
 export default function Education() {
   return (
-    <section id="education" className="container max-w-5xl py-16 md:py-24">
+    <section id="education" className="container max-w-5xl scroll-mt-12 py-8 md:py-12">
       <h2 className="mb-10 text-3xl font-bold tracking-tight md:text-4xl">
         Education
       </h2>
