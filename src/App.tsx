@@ -4,12 +4,12 @@ import TechStack from "@/components/TechStack";
 import Projects from "@/components/Projects";
 import Education from "@/components/Education";
 import Other from "@/components/Other";
-import { BackgroundPaths } from "@/components/ui/background-paths";
+import { ShaderBackground } from "@/components/ui/shader-background";
 
 export default function App() {
   return (
     <>
-      <BackgroundPaths />
+      <ShaderBackground />
       <Navbar />
       <div className="h-16" />
       <main>
