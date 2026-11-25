@@ -7,7 +7,7 @@ export default function Hero() {
 
   return (
     <section id="home" className="container max-w-5xl py-16 md:py-24">
-      <div className="flex flex-col-reverse items-center gap-10 lg:flex-row lg:items-center lg:justify-between">
+      <div className="flex flex-col-reverse items-center gap-10 lg:flex-row-reverse lg:items-center lg:justify-between">
         <div className="w-full space-y-5 text-center lg:w-3/5 lg:text-left">
           <p className="text-sm font-medium uppercase tracking-widest text-primary">
             {personalInfo.title}
@@ -49,7 +49,7 @@ export default function Hero() {
 
         <div className="w-48 shrink-0 md:w-56 lg:w-2/5">
           <img
-            src="/img/profile.png"
+            src="/img/icon.png"
             alt={personalInfo.name}
             className="mx-auto aspect-square w-full max-w-xs -translate-y-[5px] rounded-2xl object-cover object-top shadow-lg lg:max-w-sm"
           />
