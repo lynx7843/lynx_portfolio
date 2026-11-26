@@ -15,7 +15,7 @@ export default function Projects() {
   const [active, setActive] = useState(0);
 
   return (
-    <section id="projects" className="w-full scroll-mt-12 px-4 py-8 md:px-10 md:py-12">
+    <section id="projects" className="w-full scroll-mt-12 px-4 py-8 md:px-[150px] md:py-12">
       <h2 className="mb-10 text-3xl font-bold tracking-tight md:text-4xl">Projects</h2>
 
       <div className="flex flex-col gap-3 md:h-[32rem] md:flex-row">

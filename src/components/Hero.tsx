@@ -47,11 +47,25 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="w-48 shrink-0 md:w-56 lg:w-2/5">
+        <div className="relative w-48 shrink-0 md:w-56 lg:w-2/5">
+          {/* Refraction filter: displaces whatever is behind the panel. Only Chromium accepts url() in
+              backdrop-filter; elsewhere the inline style is dropped and backdrop-blur-md is the fallback. */}
+          <svg width="0" height="0" className="absolute" aria-hidden>
+            <filter id="liquid-glass" x="0" y="0" width="100%" height="100%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.008 0.012" numOctaves="2" seed="3" result="noise" />
+              <feGaussianBlur in="noise" stdDeviation="6" result="map" />
+              <feDisplacementMap in="SourceGraphic" in2="map" scale="70" xChannelSelector="R" yChannelSelector="G" />
+            </filter>
+          </svg>
+          <div
+            aria-hidden
+            className="absolute inset-0 mx-auto -translate-y-[5px] rounded-2xl bg-white/5 backdrop-blur-md max-w-xs lg:max-w-sm"
+            style={{ backdropFilter: "url(#liquid-glass) blur(3px) saturate(1.8) brightness(1.1)" }}
+          />
           <img
             src="/img/icon.png"
             alt={personalInfo.name}
-            className="mx-auto aspect-square w-full max-w-xs -translate-y-[5px] rounded-2xl object-cover object-top shadow-lg lg:max-w-sm"
+            className="relative mx-auto aspect-square w-full max-w-xs -translate-y-[5px] rounded-2xl object-cover object-top shadow-lg lg:max-w-sm"
           />
         </div>
       </div>
