@@ -59,7 +59,7 @@ export const siteData: SiteData = {
     { label: "Tech Stack", path: "#tech-stack" },
     { label: "Projects", path: "#projects" },
     { label: "Education", path: "#education" },
-    { label: "Other", path: "#other" },
+    { label: "About Me", path: "#other" },
     { label: "Blog", path: "#blog", comingSoon: true },
   ],
   personalInfo: {
@@ -80,7 +80,7 @@ export const siteData: SiteData = {
     },
     {
       label: "Frontend",
-      items: ["HTML5", "React", "Bootstrap", "Tailwind CSS", "Three.js", "Vite"],
+      items: ["HTML5", "React", "SvelteKit", "Bootstrap", "Tailwind CSS", "Three.js", "Vite"],
     },
     {
       label: "Backend",
@@ -97,6 +97,14 @@ export const siteData: SiteData = {
     {
       label: "Tools & DevOps",
       items: ["Git", "GitHub", "Postman", "Arduino"],
+    },
+    {
+      label: "Mobile & Desktop",
+      items: ["Flutter", "Android Studio", "WPF", "Windows Forms"],
+    },
+    {
+      label: "AI & Networking",
+      items: ["TensorFlow", "PyTorch", "scikit-learn", "NumPy", "Pandas", "Linux", "Wireshark", "MQTT"],
     },
   ],
   projects: [
