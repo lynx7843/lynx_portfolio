@@ -1,62 +1,88 @@
+import { useState } from "react";
+import { Plus, X, ArrowUpRight } from "lucide-react";
 import { siteData } from "@/data/site";
-import { GithubIcon } from "@/components/icons";
+import { cn } from "@/lib/utils";
+
+// No project thumbnails exist yet, so each card gets a gradient stand-in.
+const backdrops = [
+  "from-zinc-700 via-zinc-900 to-black",
+  "from-orange-700 via-stone-800 to-black",
+  "from-emerald-700 via-slate-800 to-black",
+  "from-indigo-700 via-slate-900 to-black",
+];
 
 export default function Projects() {
+  const [active, setActive] = useState(0);
+
   return (
-    <section id="projects" className="container max-w-5xl scroll-mt-12 py-8 md:py-12">
-      <h2 className="mb-10 text-3xl font-bold tracking-tight md:text-4xl">
-        Projects
-      </h2>
+    <section id="projects" className="w-full scroll-mt-12 px-4 py-8 md:px-[150px] md:py-12">
+      <h2 className="mb-10 text-3xl font-bold tracking-tight md:text-4xl">Projects</h2>
 
-      <div className="grid gap-6">
-        {siteData.projects.map((project) => (
-          <article
-            key={project.title}
-            className="flex flex-col overflow-hidden rounded-xl border border-border bg-card sm:flex-row"
-          >
-            <div className="flex h-40 shrink-0 items-center justify-center bg-muted text-xs text-muted-foreground sm:h-auto sm:w-56">
-              Thumbnail coming soon
-            </div>
+      <div className="flex flex-col gap-3 md:h-[32rem] md:flex-row">
+        {siteData.projects.map((project, i) => {
+          const open = i === active;
+          return (
+            <article
+              key={project.title}
+              onClick={() => !open && setActive(i)}
+              className={cn(
+                !open && "cursor-pointer",
+                "relative flex min-h-24 min-w-0 flex-col justify-end overflow-hidden rounded-2xl bg-gradient-to-br p-4 text-white md:p-6 transition-[flex-grow] duration-500 ease-out md:min-h-0",
+                backdrops[i % backdrops.length],
+                open ? "min-h-[28rem] md:flex-[3]" : "md:flex-[1]",
+              )}
+            >
+              <div className="absolute inset-x-4 top-4 flex items-center justify-between gap-2">
+                <span className="truncate text-[10px] font-semibold uppercase tracking-wider text-white/80">
+                  {String(i + 1).padStart(2, "0")} / {project.title.split(" — ")[0]}
+                </span>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setActive(open ? -1 : i);
+                  }}
+                  aria-label={open ? `Collapse ${project.title}` : `Expand ${project.title}`}
+                  aria-expanded={open}
+                  className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/50 transition-colors hover:bg-white/20"
+                >
+                  {open ? <X className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
+                </button>
+              </div>
 
-            <div className="flex flex-1 flex-col gap-3 p-6">
-              <div>
-                <h3 className="text-lg font-semibold tracking-tight">
-                  {project.title}
+              {/* Fixed width so the text never reflows while the card resizes; the card just clips it */}
+              <div
+                className={cn(
+                  "flex w-[calc(100vw-5rem)] flex-col gap-3 transition-opacity duration-300 md:w-[30rem]",
+                  open ? "opacity-100 delay-200" : "pointer-events-none hidden opacity-0 md:flex",
+                )}
+              >
+                <h3 className="text-2xl font-semibold tracking-tight">
+                  {project.title.split(" — ")[1]}
                 </h3>
-                <p className="text-sm font-medium text-primary">{project.role}</p>
-              </div>
-
-              <ul className="list-disc space-y-1 pl-4 text-sm text-muted-foreground">
-                {project.description.map((point) => (
-                  <li key={point}>{point}</li>
-                ))}
-              </ul>
-
-              <div className="flex flex-wrap gap-2">
-                {project.tech.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-medium text-foreground"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-
-              <div className="mt-auto pt-2">
+                <p className="text-sm text-white/80">{project.description}</p>
+                <div className="flex flex-wrap gap-2">
+                  {project.tech.map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full border border-white/30 px-3 py-1 text-xs font-medium"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
                 <a
                   href={project.githubUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-md border border-input px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+                  className="inline-flex w-fit items-center gap-2 rounded-full bg-lime-300 px-4 py-2 text-xs font-semibold text-black transition-opacity hover:opacity-90"
                 >
-                  <GithubIcon className="h-4 w-4" />
                   Open in GitHub
+                  <ArrowUpRight className="h-3.5 w-3.5" />
                 </a>
               </div>
-            </div>
-          </article>
-        ))}
+            </article>
+          );
+        })}
       </div>
     </section>
   );

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/img/icon.png" />
@@ -9,15 +9,6 @@
       content="Dilan Amantha — Software Engineer & Full-Stack Developer portfolio."
     />
     <title>Dilan Amantha | Software Engineer</title>
-    <script>
-      (function () {
-        var stored = localStorage.getItem("theme");
-        var isDark =
-          stored === "dark" ||
-          (!stored && window.matchMedia("(prefers-color-scheme: dark)").matches);
-        document.documentElement.classList.toggle("dark", isDark);
-      })();
-    </script>
     <style>
       #loader {
         position: fixed;
@@ -26,12 +17,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: #ffffff;
-        transition: opacity 0.4s ease;
-      }
-
-      .dark #loader {
         background-color: #030712;
+        transition: opacity 0.4s ease;
       }
 
       #loader.loader-hidden {
@@ -41,16 +28,12 @@
 
       .loader-orbit {
         --uib-size: 45px;
-        --uib-color: #030712;
+        --uib-color: #f9fafb;
         --uib-speed: 1.75s;
         position: relative;
         height: var(--uib-size);
         width: var(--uib-size);
         animation: loader-rotate calc(var(--uib-speed) * 4) linear infinite;
-      }
-
-      .dark .loader-orbit {
-        --uib-color: #f9fafb;
       }
 
       @keyframes loader-rotate {

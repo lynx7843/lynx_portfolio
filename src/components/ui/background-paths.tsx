@@ -70,7 +70,7 @@ function FloatingPaths({
   return (
     <div className="absolute inset-0 pointer-events-none">
       <svg
-        className="h-full w-full text-slate-950 dark:text-white"
+        className="h-full w-full text-white"
         viewBox="0 0 696 316"
         preserveAspectRatio="xMidYMid slice"
         fill="none"
@@ -108,7 +108,7 @@ export function BackgroundPaths({ className }: { className?: string }) {
     <div
       aria-hidden="true"
       className={cn(
-        "pointer-events-none fixed inset-0 -z-10 overflow-hidden opacity-50 dark:opacity-35",
+        "pointer-events-none fixed inset-0 -z-10 overflow-hidden opacity-35",
         className
       )}
     >
