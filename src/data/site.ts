@@ -66,7 +66,7 @@ export const siteData: SiteData = {
     name: "Dilan Amantha",
     title: "Software Engineer | Full-Stack Developer",
     location: "Kirindiwela, Sri Lanka",
-    bio: "Third-year software engineering undergraduate building full-stack web, mobile and Windows applications with React, Flutter and ASP.NET Core, backed by AWS serverless services and relational databases. I work across IoT-driven products, real-time data and dashboard interfaces, with a focus on maintainable code and clean, minimal interfaces.",
+    bio: "Third-year undergraduate with practical experience developing scalable web, mobile and Windows applications. I build full-stack applications with React, SvelteKit, Flutter and ASP.NET Core, backed by AWS serverless services and relational databases. Experienced in cross-platform products involving IoT devices, real-time data and dashboard interfaces, with a focus on maintainable code and clean, minimal user interfaces. Recently interested in machine learning, networking, server-side operations and developing deep learning algorithms.",
   },
   contactInfo: {
     email: "eadaedirisingha@gmail.com",
