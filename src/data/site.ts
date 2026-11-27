@@ -15,6 +15,7 @@ export interface ContactInfo {
   email: string;
   github: string;
   linkedin: string;
+  cv: string;
 }
 
 export interface TechCategory {
@@ -27,7 +28,10 @@ export interface Project {
   role: string;
   description: string;
   tech: string[];
-  githubUrl: string;
+  githubUrl?: string; // omitted for private work
+  status?: string;
+  posterWide?: string; // shown when the card is expanded
+  posterTall?: string; // shown when collapsed
 }
 
 export interface Education {
@@ -50,6 +54,7 @@ export interface SiteData {
   contactInfo: ContactInfo;
   techStack: TechCategory[];
   projects: Project[];
+  professionalWork: Project[];
   education: Education[];
   other: OtherActivity[];
 }
@@ -72,6 +77,7 @@ export const siteData: SiteData = {
     email: "eadaedirisingha@gmail.com",
     github: "https://github.com/lynx7843",
     linkedin: "https://www.linkedin.com/in/dilan-edirisingha-amantha",
+    cv: "https://drive.google.com/file/d/1eX28vyaZd1-0kss2Qo_SNap_Vh3k78tz/view?usp=sharing",
   },
   techStack: [
     {
@@ -139,6 +145,28 @@ export const siteData: SiteData = {
         "Applicant tracking system that moves candidates through each stage of the hiring pipeline, using a Fastify REST API with Zod validation over PostgreSQL and a multi-page React interface.",
       tech: ["React", "Tailwind CSS", "Node.js", "Fastify", "Zod", "PostgreSQL"],
       githubUrl: "https://github.com/lynx7843/HireSync",
+    },
+  ],
+  professionalWork: [
+    {
+      title: "Hotel Coconut Bay — ERP System",
+      role: "Full Stack Developer",
+      description:
+        "Private ERP platform for Hotel Coconut Bay that brings 16 hotel departments, including front office, restaurant, housekeeping, HR and accounts, into one system with role-based access and a central admin dashboard. Proprietary software, so no public link.",
+      tech: ["React", "Vite", "Tailwind CSS", "FastAPI", "MongoDB", "JWT"],
+      status: "Ready to deploy",
+      posterWide: "/img/hotel-erp-wide.png",
+      posterTall: "/img/hotel-erp-tall.png",
+    },
+    {
+      title: "OmniTrade — Stock Trading Insight Bot",
+      role: "Creator & Developer",
+      description:
+        "AI-assisted market research tool for the Colombo Stock Exchange, built for my own professional use. Private project, so no public link.",
+      tech: ["React", "Python", "FastAPI", "AI"],
+      status: "Coming soon",
+      posterWide: "/img/omnitrade-wide.png",
+      posterTall: "/img/omnitrade-tall.png",
     },
   ],
   education: [

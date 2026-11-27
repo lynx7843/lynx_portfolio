@@ -1,4 +1,4 @@
-import { Mail } from "lucide-react";
+import { FileText, Mail } from "lucide-react";
 import { siteData } from "@/data/site";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
 
@@ -19,6 +19,15 @@ export default function Hero() {
             {personalInfo.bio}
           </p>
           <div className="flex items-center justify-center gap-3 lg:justify-start">
+            <a
+              href={contactInfo.cv}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex h-9 items-center gap-2 rounded-full border border-input px-4 text-sm text-muted-foreground transition-colors hover:text-foreground"
+            >
+              <FileText className="h-4 w-4" />
+              View CV
+            </a>
             <a
               href={contactInfo.github}
               target="_blank"
