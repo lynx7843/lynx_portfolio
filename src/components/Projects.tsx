@@ -47,8 +47,15 @@ export default function Projects({
               {project.posterWide && open && (
                 <div className="absolute inset-y-0 right-0 aspect-video">
                   <img src={project.posterWide} alt="" className="h-full w-full" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] from-[58%] to-transparent to-[62%]" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] from-[57%] to-transparent to-[59.5%]" />
                 </div>
+              )}
+              {/* Narrow cards: keep the artwork out from under the description (30rem text + padding) */}
+              {project.posterWide && open && (
+                <div
+                  className="absolute inset-y-0 left-0 hidden w-[32rem] md:block"
+                  style={{ background: "linear-gradient(to right, #0a0a0a calc(100% - 2rem), transparent)" }}
+                />
               )}
               <div className="absolute inset-x-4 top-4 flex items-center justify-between gap-2">
                 <span

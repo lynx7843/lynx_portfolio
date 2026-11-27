@@ -121,6 +121,8 @@ export const siteData: SiteData = {
         "Cross-platform shuttle management for university students: two Flutter apps, a React dashboard and Arduino GPS and fingerprint hardware for live tracking, backed by 18 AWS Lambda functions with DynamoDB and API Gateway.",
       tech: ["React", "Flutter", "AWS Lambda", "DynamoDB", "Arduino", "JavaScript"],
       githubUrl: "https://github.com/lynx7843/UniRide",
+      posterWide: "/img/uniride-wide.png",
+      posterTall: "/img/uniride-tall.png",
     },
     {
       title: "Quickart — Responsive E-commerce Mobile Application",
@@ -129,6 +131,8 @@ export const siteData: SiteData = {
         "E-commerce app using AI and AR so buyers can make better purchase decisions, with a virtual fit-on room built on 3D models. I built the Flutter client with REST API integration and S3-backed media storage.",
       tech: ["Flutter", "Dart", "MongoDB Atlas", "AWS S3", "REST APIs"],
       githubUrl: "https://github.com/lynx7843/Quickart-mobile",
+      posterWide: "/img/quickart-wide.png",
+      posterTall: "/img/quickart-tall.png",
     },
     {
       title: "Inventria — Warehouse Management System",
@@ -137,6 +141,8 @@ export const siteData: SiteData = {
         "Warehouse system for managing products, stock levels and daily inventory operations. I built the SvelteKit frontend, with authentication plus employee and admin dashboards, against an ASP.NET Core 9 API and SQL Server.",
       tech: ["SvelteKit", "TypeScript", "ASP.NET Core 9", "C#", "Microsoft SQL Server"],
       githubUrl: "https://github.com/lynx7843/Inventria",
+      posterWide: "/img/inventria-wide.png",
+      posterTall: "/img/inventria-tall.png",
     },
     {
       title: "HireSync — Applicant Tracking System",
@@ -145,6 +151,8 @@ export const siteData: SiteData = {
         "Applicant tracking system that moves candidates through each stage of the hiring pipeline, using a Fastify REST API with Zod validation over PostgreSQL and a multi-page React interface.",
       tech: ["React", "Tailwind CSS", "Node.js", "Fastify", "Zod", "PostgreSQL"],
       githubUrl: "https://github.com/lynx7843/HireSync",
+      posterWide: "/img/hiresync-wide.png",
+      posterTall: "/img/hiresync-tall.png",
     },
   ],
   professionalWork: [
