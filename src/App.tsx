@@ -32,6 +32,7 @@ export default function App() {
         <Hero />
         <TechStack />
         <Projects />
+        <Projects id="professional-work" heading="Professional Work" items={siteData.professionalWork} />
         <Education />
         <Other />
       </main>

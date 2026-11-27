@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Plus, X, ArrowUpRight } from "lucide-react";
-import { siteData } from "@/data/site";
+import { siteData, type Project } from "@/data/site";
 import { cn } from "@/lib/utils";
 
 // No project thumbnails exist yet, so each card gets a gradient stand-in.
@@ -11,15 +11,23 @@ const backdrops = [
   "from-indigo-700 via-slate-900 to-black",
 ];
 
-export default function Projects() {
+export default function Projects({
+  id = "projects",
+  heading = "Projects",
+  items = siteData.projects,
+}: {
+  id?: string;
+  heading?: string;
+  items?: Project[];
+}) {
   const [active, setActive] = useState(0);
 
   return (
-    <section id="projects" className="w-full scroll-mt-12 px-4 py-8 md:px-[150px] md:py-12">
-      <h2 className="mb-10 text-3xl font-bold tracking-tight md:text-4xl">Projects</h2>
+    <section id={id} className="w-full scroll-mt-12 px-4 py-8 md:px-[150px] md:py-12">
+      <h2 className="mb-10 text-3xl font-bold tracking-tight md:text-4xl">{heading}</h2>
 
       <div className="flex flex-col gap-3 md:h-[32rem] md:flex-row">
-        {siteData.projects.map((project, i) => {
+        {items.map((project, i) => {
           const open = i === active;
           return (
             <article
@@ -28,12 +36,34 @@ export default function Projects() {
               className={cn(
                 !open && "cursor-pointer",
                 "relative flex min-h-24 min-w-0 flex-col justify-end overflow-hidden rounded-2xl bg-gradient-to-br p-4 text-white md:p-6 transition-[flex-grow] duration-500 ease-out md:min-h-0",
-                backdrops[i % backdrops.length],
+                project.posterTall ? "bg-[#0a0a0a] bg-none" : backdrops[i % backdrops.length], // matches the poster background so contain never shows bars
                 open ? "min-h-[28rem] md:flex-[3]" : "md:flex-[1]",
               )}
             >
+              {project.posterTall && !open && (
+                <img src={project.posterTall} alt="" className="absolute inset-0 h-full w-full object-contain" />
+              )}
+              {/* Poster-sized box pinned right, so the mask below always lines up with the artwork at any card width */}
+              {project.posterWide && open && (
+                <div className="absolute inset-y-0 right-0 aspect-video">
+                  <img src={project.posterWide} alt="" className="h-full w-full" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] from-[57%] to-transparent to-[59.5%]" />
+                </div>
+              )}
+              {/* Narrow cards: keep the artwork out from under the description (30rem text + padding) */}
+              {project.posterWide && open && (
+                <div
+                  className="absolute inset-y-0 left-0 hidden w-[32rem] md:block"
+                  style={{ background: "linear-gradient(to right, #0a0a0a calc(100% - 2rem), transparent)" }}
+                />
+              )}
               <div className="absolute inset-x-4 top-4 flex items-center justify-between gap-2">
-                <span className="truncate text-[10px] font-semibold uppercase tracking-wider text-white/80">
+                <span
+                  className={cn(
+                    "truncate text-[10px] font-semibold uppercase tracking-wider text-white/80",
+                    project.posterTall && !open && "invisible", // the poster already carries the name
+                  )}
+                >
                   {String(i + 1).padStart(2, "0")} / {project.title.split(" — ")[0]}
                 </span>
                 <button
@@ -52,7 +82,7 @@ export default function Projects() {
               {/* Fixed width so the text never reflows while the card resizes; the card just clips it */}
               <div
                 className={cn(
-                  "flex w-[calc(100vw-5rem)] flex-col gap-3 transition-opacity duration-300 md:w-[30rem]",
+                  "relative flex w-[calc(100vw-5rem)] flex-col gap-3 transition-opacity duration-300 md:w-[30rem]",
                   open ? "opacity-100 delay-200" : "pointer-events-none hidden opacity-0 md:flex",
                 )}
               >
@@ -70,6 +100,7 @@ export default function Projects() {
                     </span>
                   ))}
                 </div>
+                {project.githubUrl ? (
                 <a
                   href={project.githubUrl}
                   target="_blank"
@@ -79,6 +110,11 @@ export default function Projects() {
                   Open in GitHub
                   <ArrowUpRight className="h-3.5 w-3.5" />
                 </a>
+                ) : (
+                  <span className="inline-flex w-fit rounded-full bg-lime-300 px-4 py-2 text-xs font-semibold text-black">
+                    {project.status}
+                  </span>
+                )}
               </div>
             </article>
           );
